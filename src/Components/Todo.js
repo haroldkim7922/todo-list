@@ -7,20 +7,17 @@ const Todo = props => (
     }
   >
     <div className="row">
-      <div className="col-4">
-        <div>{props.info.desc}</div>
+      <div className="col-1">
+        <input
+          type="checkbox"
+          className="mr-2"
+          onChange={e => {
+            props.handleTaskComplete(props.info.id, e.target.checked);
+          }}
+        />
       </div>
-      <div className="col-4">
-        <div className="d-flex flex-row align-items-center">
-          <input
-            type="checkbox"
-            className="mr-2"
-            onChange={e => {
-              props.handleTaskComplete(props.info.id, e.target.checked);
-            }}
-          />
-          <span>Completed</span>
-        </div>
+      <div className="col-7">
+        <div>{props.info.desc}</div>
       </div>
       <div className="col-4">
         <button

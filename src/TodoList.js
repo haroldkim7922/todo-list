@@ -26,6 +26,8 @@ class TodoList extends Component {
           uncheckedCount: uncheckedTasks,
           itemCount: todos.length
         });
+      } else {
+        this.setState({ itemCount: 0 });
       }
     }
   }
@@ -39,11 +41,10 @@ class TodoList extends Component {
 
   addNewTask = () => {
     const { task, todos } = this.state;
-    const newArr = [...todos];
     idNum = idNum + 1;
-    newArr.push({ id: idNum, desc: task, complete: false });
+    let taskObj = { id: idNum, desc: task, complete: false };
     this.setState({
-      todos: newArr
+      todos: [...todos, taskObj]
     });
 
     this.resetForm();
@@ -80,7 +81,7 @@ class TodoList extends Component {
     const { itemCount, uncheckedCount, task, todos } = this.state;
     return (
       <div className="container center">
-        <h1 className="center title">My TODO App</h1>
+        <h3 className="center title">My TODO App</h3>
         <div className="flow-right controls">
           <span>Item count: {itemCount}</span>
           <span>Unchecked count: {uncheckedCount}</span>
