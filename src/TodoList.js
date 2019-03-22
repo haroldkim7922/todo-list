@@ -27,7 +27,7 @@ class TodoList extends Component {
           itemCount: todos.length
         });
       } else {
-        this.setState({ itemCount: 0 });
+        this.setState({ itemCount: 0, uncheckedCount: 0 });
       }
     }
   }
